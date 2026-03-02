@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+@import "@fullcalendar/core/main.css";
+@import "@fullcalendar/timegrid/main.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #111113;
+  --sand: #f6f0e8;
+  --ember: #d95f39;
+  --moss: #4f6f52;
+}
+
+body {
+  background: radial-gradient(circle at top left, rgba(217, 95, 57, 0.15), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(79, 111, 82, 0.18), transparent 40%),
+    var(--sand);
+  color: var(--ink);
+}
+
+.card-surface {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(17, 17, 19, 0.08);
+  backdrop-filter: blur(10px);
+}

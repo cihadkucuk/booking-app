@@ -1,0 +1,9 @@
+node_modules
+.env
+.env.*
+dist
+.next
+coverage
+pnpm-lock.yaml
+package-lock.json
+.DS_Store

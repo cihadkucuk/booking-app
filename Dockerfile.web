@@ -1,0 +1,28 @@
+FROM node:20-alpine AS base
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+COPY apps/web/package.json apps/web/package.json
+COPY packages/shared/package.json packages/shared/package.json
+
+RUN npm install
+
+COPY tsconfig.base.json ./
+COPY packages/shared packages/shared
+COPY apps/web apps/web
+
+RUN npm -w @studioos/shared run build
+RUN npm -w @studioos/web run build
+
+FROM node:20-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY --from=base /app/node_modules ./node_modules
+COPY --from=base /app/apps/web/.next ./apps/web/.next
+COPY --from=base /app/apps/web/package.json ./apps/web/package.json
+COPY --from=base /app/apps/web/next.config.js ./apps/web/next.config.js
+COPY --from=base /app/apps/web/public ./apps/web/public
+
+EXPOSE 3000
+CMD ["npm", "-w", "@studioos/web", "run", "start", "--", "-p", "3000"]

@@ -1,0 +1,421 @@
+// Prisma schema for StudioOS
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  OWNER
+  MANAGER
+  ARTIST
+  FRONT_DESK
+}
+
+enum AppointmentStatus {
+  TENTATIVE
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+}
+
+enum InboxChannel {
+  instagram
+  website
+  walkin
+}
+
+enum BookingCategory {
+  tattoo
+  piercing
+  training
+  cover_up
+}
+
+model Tenant {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  studios   Studio[]
+  users     User[]
+}
+
+model Studio {
+  id          String          @id @default(uuid())
+  tenantId    String
+  studioId    String          @unique
+  name        String
+  timezone    String          @default("Europe/Prague")
+  currency    String          @default("CZK")
+  createdAt   DateTime        @default(now())
+  tenant      Tenant          @relation(fields: [tenantId], references: [id])
+  members     StudioMember[]
+  services    Service[]
+  stations    Station[]
+  clients     Client[]
+  appointments Appointment[]
+  conversations Conversation[]
+  featureFlags FeatureFlag[]
+}
+
+model User {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+  memberships StudioMember[]
+}
+
+model StudioMember {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  userId    String
+  role      Role
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Service {
+  id            String   @id @default(uuid())
+  tenantId      String
+  studioId      String
+  name          String
+  category      BookingCategory
+  durationMin   Int
+  bufferBefore  Int
+  bufferAfter   Int
+  priceAmount   Int
+  priceCurrency String
+  depositAmount Int?
+  createdAt     DateTime @default(now())
+  tenant        Tenant   @relation(fields: [tenantId], references: [id])
+  studio        Studio   @relation(fields: [studioId], references: [id])
+}
+
+model AvailabilitySchedule {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  artistId  String
+  dayOfWeek Int
+  startTime String
+  endTime   String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+  artist    User     @relation(fields: [artistId], references: [id])
+}
+
+model TimeOff {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  artistId  String
+  startsAt  DateTime
+  endsAt    DateTime
+  reason    String?
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+  artist    User     @relation(fields: [artistId], references: [id])
+}
+
+model Station {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  name      String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model Client {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  name      String
+  email     String?
+  phone     String?
+  notes     String?
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model Appointment {
+  id            String            @id @default(uuid())
+  tenantId      String
+  studioId      String
+  artistId      String
+  clientId      String
+  serviceId     String
+  stationId     String?
+  status        AppointmentStatus
+  category      BookingCategory
+  startsAt      DateTime
+  endsAt        DateTime
+  bufferBefore  Int
+  bufferAfter   Int
+  depositDue    Int
+  currency      String
+  notes         String?
+  createdById   String
+  createdAt     DateTime @default(now())
+  tenant        Tenant  @relation(fields: [tenantId], references: [id])
+  studio        Studio  @relation(fields: [studioId], references: [id])
+  artist        User    @relation(fields: [artistId], references: [id])
+  client        Client  @relation(fields: [clientId], references: [id])
+  service       Service @relation(fields: [serviceId], references: [id])
+  station       Station? @relation(fields: [stationId], references: [id])
+  createdBy     User    @relation(fields: [createdById], references: [id])
+  payments      Payment[]
+  auditLogs     AuditLog[]
+}
+
+model Payment {
+  id          String        @id @default(uuid())
+  tenantId    String
+  studioId    String
+  appointmentId String
+  amount      Int
+  currency    String
+  status      PaymentStatus
+  provider    String
+  providerEventId String?
+  createdAt   DateTime @default(now())
+  tenant      Tenant      @relation(fields: [tenantId], references: [id])
+  studio      Studio      @relation(fields: [studioId], references: [id])
+  appointment Appointment @relation(fields: [appointmentId], references: [id])
+  auditLogs   AuditLog[]
+}
+
+model PaymentEvent {
+  id          String   @id @default(uuid())
+  tenantId    String
+  studioId    String
+  provider    String
+  eventId     String
+  receivedAt  DateTime @default(now())
+  tenant      Tenant   @relation(fields: [tenantId], references: [id])
+  studio      Studio   @relation(fields: [studioId], references: [id])
+
+  @@unique([provider, eventId])
+}
+
+model Conversation {
+  id        String        @id @default(uuid())
+  tenantId  String
+  studioId  String
+  clientId  String?
+  channel   InboxChannel
+  subject   String?
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+  messages  Message[]
+  notes     InternalNote[]
+  assignments Assignment[]
+  tags      ConversationTag[]
+}
+
+model Message {
+  id             String   @id @default(uuid())
+  tenantId       String
+  studioId       String
+  conversationId String
+  senderName     String
+  senderHandle   String?
+  body           String
+  externalId     String?
+  createdAt      DateTime @default(now())
+  tenant         Tenant   @relation(fields: [tenantId], references: [id])
+  studio         Studio   @relation(fields: [studioId], references: [id])
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+
+  @@unique([externalId])
+}
+
+model InternalNote {
+  id             String   @id @default(uuid())
+  tenantId       String
+  studioId       String
+  conversationId String
+  authorId       String
+  body           String
+  createdAt      DateTime @default(now())
+  tenant         Tenant   @relation(fields: [tenantId], references: [id])
+  studio         Studio   @relation(fields: [studioId], references: [id])
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  author         User     @relation(fields: [authorId], references: [id])
+}
+
+model Assignment {
+  id             String   @id @default(uuid())
+  tenantId       String
+  studioId       String
+  conversationId String
+  assigneeId     String
+  createdAt      DateTime @default(now())
+  tenant         Tenant   @relation(fields: [tenantId], references: [id])
+  studio         Studio   @relation(fields: [studioId], references: [id])
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  assignee       User     @relation(fields: [assigneeId], references: [id])
+}
+
+model Tag {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  name      String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+  conversations ConversationTag[]
+
+  @@unique([studioId, name])
+}
+
+model ConversationTag {
+  id             String @id @default(uuid())
+  tenantId       String
+  studioId       String
+  conversationId String
+  tagId          String
+  tenant         Tenant   @relation(fields: [tenantId], references: [id])
+  studio         Studio   @relation(fields: [studioId], references: [id])
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  tag            Tag      @relation(fields: [tagId], references: [id])
+}
+
+model FeatureFlag {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  key       String
+  enabled   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+
+  @@unique([studioId, key])
+}
+
+model Expense {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  name      String
+  amount    Int
+  currency  String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model RevenueSnapshot {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  artistId  String?
+  category  BookingCategory?
+  amount    Int
+  currency  String
+  period    String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model MetaAccountSnapshot {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  accountId String
+  metric    String
+  value     Int
+  capturedAt DateTime
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model MetaMediaSnapshot {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  mediaId   String
+  metric    String
+  value     Int
+  capturedAt DateTime
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model MetaAdSnapshot {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  adId      String
+  metric    String
+  value     Int
+  capturedAt DateTime
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model GaSnapshot {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  propertyId String
+  metric    String
+  value     Int
+  capturedAt DateTime
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model SeoCheck {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  domain    String
+  score     Int
+  report    String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  tenantId  String
+  studioId  String
+  entity    String
+  entityId  String
+  action    String
+  payload   String
+  createdAt DateTime @default(now())
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  studio    Studio   @relation(fields: [studioId], references: [id])
+}

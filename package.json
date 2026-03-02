@@ -1,0 +1,15 @@
+﻿{
+  "name": "studioos",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm -w @studioos/web run dev",
+    "dev:api": "npm -w @studioos/api run start:dev",
+    "build": "npm -w @studioos/shared run build && npm -w @studioos/api run build && npm -w @studioos/web run build",
+    "lint": "npm -w @studioos/api run lint && npm -w @studioos/web run lint",
+    "test": "npm -w @studioos/api run test"
+  }
+}
