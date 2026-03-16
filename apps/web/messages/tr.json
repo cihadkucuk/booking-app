@@ -1,0 +1,143 @@
+{
+  "common": {
+    "appName": "StudioOS",
+    "studioName": "Soul Tattoo Atelier",
+    "weekView": "Haftalık Görünüm",
+    "loading": "Yükleniyor...",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "add": "Ekle",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "enable": "Etkinleştir",
+    "manage": "Yönet",
+    "configure": "Yapılandır",
+    "copy": "Kopyala",
+    "run": "Çalıştır",
+    "choose": "Seç",
+    "log": "Kayıt Et",
+    "create": "Oluştur",
+    "open": "Aç",
+    "new": "Yeni",
+    "featureFlags": "Özellik Bayrakları",
+    "featureFlagsDisabled": "Stripe, Meta, Notion devre dışı"
+  },
+  "nav": {
+    "overview": "Genel Bakış",
+    "calendar": "Takvim",
+    "inbox": "Gelen Kutusu",
+    "clients": "Müşteriler",
+    "finance": "Finans",
+    "analytics": "Büyüme Analitiği",
+    "settings": "Stüdyo Ayarları"
+  },
+  "dashboard": {
+    "title": "StudioOS Paneli",
+    "subtitle": "Soul Tattoo Atelier'in canlı nabzı.",
+    "upcomingDeposits": "Yaklaşan Depozitolar",
+    "revenueThisWeek": "Bu Haftaki Gelir",
+    "newConversations": "Yeni Konuşmalar",
+    "todayAtAGlance": "Bugüne Genel Bakış",
+    "inboxPulse": "Gelen Kutusu Nabzı",
+    "inboxPulseDescription": "Instagram ve web sohbeti hazır. Meta izinleri henüz bekliyor.",
+    "openInbox": "Gelen Kutusunu Aç",
+    "todayItems": {
+      "item1": "10:00 - Marek Novak / Seans / İstasyon 2",
+      "item2": "12:00 - Walk-in / Danışma / İstasyon TBD",
+      "item3": "15:00 - Klara V / Piercing / İstasyon 1"
+    }
+  },
+  "calendar": {
+    "title": "Takvim",
+    "subtitle": "Yeniden planlamak için sürükle ve bırak. Çakışmalar otomatik geri alınır.",
+    "newBooking": "Yeni Rezervasyon",
+    "artistPersonal": "Sanatçı Kişisel",
+    "studioGrid": "Stüdyo Izgarası (lisans gerekli)"
+  },
+  "clients": {
+    "title": "Müşteriler",
+    "subtitle": "Müşteri profillerini ve geçmişlerini yönetin.",
+    "addClient": "Müşteri Ekle",
+    "recentClients": "Son müşteriler",
+    "clients": [
+      "Petra V. - Son ziyaret: 2 gün önce",
+      "Marek N. - Son ziyaret: 1 hafta önce",
+      "Klara S. - Son ziyaret: 3 hafta önce"
+    ]
+  },
+  "finance": {
+    "title": "Finans Genel Bakışı",
+    "subtitle": "Sanatçıya göre gelir ve para birimine göre gruplandırılmış yaklaşan depozitolar.",
+    "revenueByArtist": "Sanatçıya göre gelir",
+    "revenueByArtistDescription": "Dönüştürme olmadan ayrılmış CZK ve EUR toplamları.",
+    "upcomingDeposits": "Yaklaşan depozitolar",
+    "upcomingDepositsDescription": "Ödeme bekleyen seans rezervasyonları.",
+    "expenses": "Giderler",
+    "logExpense": "Gider Kaydet"
+  },
+  "analytics": {
+    "title": "Büyüme Analitiği (Beta)",
+    "subtitle": "Meta içgörüleri, GA4 ve SEO sağlık puanlaması.",
+    "metaInsights": "Meta İçgörüleri",
+    "metaInsightsDescription": "Özellik bayrağı kapalı. Etkinleştirmek için Meta kimlik bilgilerini sağlayın.",
+    "enableMeta": "Meta'yı Etkinleştir",
+    "googleAnalytics": "Google Analytics",
+    "googleAnalyticsDescription": "Kimlik doğrulama yöntemi belirsiz (Hizmet Hesabı vs OAuth).",
+    "chooseAuth": "Kimlik Doğrulamayı Seç",
+    "seoHealth": "SEO Sağlık Puanı",
+    "seoHealthDescription": "İsteğe bağlı Search Console taslağıyla tarayıcı tabanlı kontrol listesi.",
+    "runCheck": "Kontrolü Çalıştır"
+  },
+  "inbox": {
+    "title": "Birleşik Gelen Kutusu",
+    "subtitle": "Instagram DM'leri, web sohbeti ve walk-in'ler tek yerde.",
+    "instagram": "Instagram",
+    "instagramDescription": "Meta uygulaması mevcut, izinler bekliyor.",
+    "configureMeta": "Meta'yı Yapılandır",
+    "websiteChat": "Web Sitesi Sohbeti",
+    "websiteChatDescription": "Sohbet widget'ı yerleştirmeye hazır.",
+    "copyWidget": "Widget'ı Kopyala",
+    "walkins": "Walk-in'ler",
+    "walkinsDescription": "Gerçek randevulara dönüşen hızlı walk-in'leri kaydedin.",
+    "newWalkin": "Yeni Walk-in"
+  },
+  "settings": {
+    "title": "Stüdyo Ayarları",
+    "subtitle": "Sanatçıları, hizmetleri, istasyonları ve özellik bayraklarını yönetin.",
+    "artists": "Sanatçılar",
+    "artistsDescription": "Sanatçıları davet edin ve roller atayın.",
+    "addArtist": "Sanatçı Ekle",
+    "services": "Hizmetler",
+    "servicesDescription": "Danışmalar ücretsizdir, seanslar depozito gerektirir.",
+    "addService": "Hizmet Ekle",
+    "stations": "İstasyonlar",
+    "stationsDescription": "Seans rezervasyonları için istasyon ataması isteğe bağlıdır.",
+    "addStation": "İstasyon Ekle",
+    "currencies": "Para Birimleri",
+    "currenciesDescription": "Desteklenen para birimleri: CZK, EUR.",
+    "featureFlags": "Özellik Bayrakları",
+    "featureFlagsDescription": "Stripe, Meta, Notion, GA, SEO varsayılan olarak devre dışıdır.",
+    "manageFlags": "Bayrakları Yönet"
+  },
+  "booking": {
+    "title": "Rezervasyon",
+    "description": "Danışma veya seans seçin, ardından isteğe bağlı olarak bir istasyon atayın.",
+    "createBooking": "Rezervasyon Oluştur"
+  },
+  "login": {
+    "title": "Tekrar hoş geldiniz",
+    "subtitle": "Stüdyonuzu yönetmek için giriş yapın.",
+    "email": "E-posta",
+    "password": "Şifre",
+    "tenantId": "Kiracı ID",
+    "studioId": "Stüdyo ID",
+    "signIn": "Giriş Yap"
+  },
+  "language": {
+    "label": "Dil",
+    "en": "English",
+    "tr": "Türkçe",
+    "cs": "Čeština"
+  }
+}
