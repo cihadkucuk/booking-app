@@ -1,0 +1,143 @@
+{
+  "common": {
+    "appName": "StudioOS",
+    "studioName": "Soul Tattoo Atelier",
+    "weekView": "Týdenní pohled",
+    "loading": "Načítání...",
+    "save": "Uložit",
+    "cancel": "Zrušit",
+    "close": "Zavřít",
+    "add": "Přidat",
+    "edit": "Upravit",
+    "delete": "Smazat",
+    "enable": "Povolit",
+    "manage": "Spravovat",
+    "configure": "Konfigurovat",
+    "copy": "Kopírovat",
+    "run": "Spustit",
+    "choose": "Vybrat",
+    "log": "Zaznamenat",
+    "create": "Vytvořit",
+    "open": "Otevřít",
+    "new": "Nový",
+    "featureFlags": "Příznaky funkcí",
+    "featureFlagsDisabled": "Stripe, Meta, Notion zakázány"
+  },
+  "nav": {
+    "overview": "Přehled",
+    "calendar": "Kalendář",
+    "inbox": "Doručená pošta",
+    "clients": "Klienti",
+    "finance": "Finance",
+    "analytics": "Analytika růstu",
+    "settings": "Nastavení studia"
+  },
+  "dashboard": {
+    "title": "Dashboard StudioOS",
+    "subtitle": "Živý puls Soul Tattoo Atelier.",
+    "upcomingDeposits": "Nadcházející zálohy",
+    "revenueThisWeek": "Příjmy tento týden",
+    "newConversations": "Nové konverzace",
+    "todayAtAGlance": "Dnešní přehled",
+    "inboxPulse": "Puls doručené pošty",
+    "inboxPulseDescription": "Instagram a webový chat jsou připraveny. Meta oprávnění stále čekají.",
+    "openInbox": "Otevřít doručenou poštu",
+    "todayItems": {
+      "item1": "10:00 - Marek Novak / Sezení / Stanice 2",
+      "item2": "12:00 - Walk-in / Konzultace / Stanice TBD",
+      "item3": "15:00 - Klara V / Piercing / Stanice 1"
+    }
+  },
+  "calendar": {
+    "title": "Kalendář",
+    "subtitle": "Přetáhnout a pustit pro přeplánování. Konflikty se automaticky vrátí.",
+    "newBooking": "Nová rezervace",
+    "artistPersonal": "Osobní umělec",
+    "studioGrid": "Mřížka studia (vyžaduje licenci)"
+  },
+  "clients": {
+    "title": "Klienti",
+    "subtitle": "Spravujte profily klientů a jejich historii.",
+    "addClient": "Přidat klienta",
+    "recentClients": "Nedávní klienti",
+    "clients": [
+      "Petra V. - Poslední návštěva: před 2 dny",
+      "Marek N. - Poslední návštěva: před 1 týdnem",
+      "Klara S. - Poslední návštěva: před 3 týdny"
+    ]
+  },
+  "finance": {
+    "title": "Finanční přehled",
+    "subtitle": "Příjmy podle umělce a nadcházející zálohy seskupené podle měny.",
+    "revenueByArtist": "Příjmy podle umělce",
+    "revenueByArtistDescription": "Součty CZK a EUR odděleny bez převodu.",
+    "upcomingDeposits": "Nadcházející zálohy",
+    "upcomingDepositsDescription": "Rezervace sezení čekající na platbu.",
+    "expenses": "Výdaje",
+    "logExpense": "Zaznamenat výdaj"
+  },
+  "analytics": {
+    "title": "Analytika růstu (Beta)",
+    "subtitle": "Meta přehledy, GA4 a hodnocení SEO zdraví.",
+    "metaInsights": "Meta přehledy",
+    "metaInsightsDescription": "Příznak funkce vypnut. Zadejte přihlašovací údaje Meta pro povolení.",
+    "enableMeta": "Povolit Meta",
+    "googleAnalytics": "Google Analytics",
+    "googleAnalyticsDescription": "Metoda ověření nezroznána (Servisní účet vs OAuth).",
+    "chooseAuth": "Vybrat ověření",
+    "seoHealth": "Skóre SEO zdraví",
+    "seoHealthDescription": "Kontrolní seznam na základě prohledávání s volitelným zástupným symbolem Search Console.",
+    "runCheck": "Spustit kontrolu"
+  },
+  "inbox": {
+    "title": "Jednotná doručená pošta",
+    "subtitle": "Instagram DM, webový chat a walk-in na jednom místě.",
+    "instagram": "Instagram",
+    "instagramDescription": "Meta aplikace existuje, oprávnění čekají.",
+    "configureMeta": "Konfigurovat Meta",
+    "websiteChat": "Webový chat",
+    "websiteChatDescription": "Chat widget připraven k vložení.",
+    "copyWidget": "Zkopírovat widget",
+    "walkins": "Walk-in",
+    "walkinsDescription": "Zaznamenejte rychlé walk-in, které se stanou skutečnými schůzkami.",
+    "newWalkin": "Nový walk-in"
+  },
+  "settings": {
+    "title": "Nastavení studia",
+    "subtitle": "Spravujte umělce, služby, stanice a příznaky funkcí.",
+    "artists": "Umělci",
+    "artistsDescription": "Pozvěte umělce a přiřaďte role.",
+    "addArtist": "Přidat umělce",
+    "services": "Služby",
+    "servicesDescription": "Konzultace jsou zdarma, sezení vyžadují zálohu.",
+    "addService": "Přidat službu",
+    "stations": "Stanice",
+    "stationsDescription": "Přiřazení stanice je pro rezervace sezení volitelné.",
+    "addStation": "Přidat stanici",
+    "currencies": "Měny",
+    "currenciesDescription": "Podporované měny: CZK, EUR.",
+    "featureFlags": "Příznaky funkcí",
+    "featureFlagsDescription": "Stripe, Meta, Notion, GA, SEO jsou ve výchozím nastavení zakázány.",
+    "manageFlags": "Spravovat příznaky"
+  },
+  "booking": {
+    "title": "Rezervace",
+    "description": "Vyberte konzultaci nebo sezení, pak volitelně přiřaďte stanici.",
+    "createBooking": "Vytvořit rezervaci"
+  },
+  "login": {
+    "title": "Vítejte zpět",
+    "subtitle": "Přihlaste se pro správu svého studia.",
+    "email": "E-mail",
+    "password": "Heslo",
+    "tenantId": "ID nájemce",
+    "studioId": "ID studia",
+    "signIn": "Přihlásit se"
+  },
+  "language": {
+    "label": "Jazyk",
+    "en": "English",
+    "tr": "Türkçe",
+    "cs": "Čeština"
+  }
+}

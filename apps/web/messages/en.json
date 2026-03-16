@@ -1,0 +1,143 @@
+{
+  "common": {
+    "appName": "StudioOS",
+    "studioName": "Soul Tattoo Atelier",
+    "weekView": "Week View",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "enable": "Enable",
+    "manage": "Manage",
+    "configure": "Configure",
+    "copy": "Copy",
+    "run": "Run",
+    "choose": "Choose",
+    "log": "Log",
+    "create": "Create",
+    "open": "Open",
+    "new": "New",
+    "featureFlags": "Feature Flags",
+    "featureFlagsDisabled": "Stripe, Meta, Notion disabled"
+  },
+  "nav": {
+    "overview": "Overview",
+    "calendar": "Calendar",
+    "inbox": "Inbox",
+    "clients": "Clients",
+    "finance": "Finance",
+    "analytics": "Growth Analytics",
+    "settings": "Studio Settings"
+  },
+  "dashboard": {
+    "title": "StudioOS Dashboard",
+    "subtitle": "Live pulse of Soul Tattoo Atelier.",
+    "upcomingDeposits": "Upcoming Deposits",
+    "revenueThisWeek": "Revenue This Week",
+    "newConversations": "New Conversations",
+    "todayAtAGlance": "Today at a glance",
+    "inboxPulse": "Inbox pulse",
+    "inboxPulseDescription": "Instagram and web chat are ready. Meta permissions still pending.",
+    "openInbox": "Open Inbox",
+    "todayItems": {
+      "item1": "10:00 - Marek Novak / Session / Station 2",
+      "item2": "12:00 - Walk-in / Consultation / Station TBD",
+      "item3": "15:00 - Klara V / Piercing / Station 1"
+    }
+  },
+  "calendar": {
+    "title": "Calendar",
+    "subtitle": "Drag and drop to reschedule. Conflicts revert automatically.",
+    "newBooking": "New Booking",
+    "artistPersonal": "Artist Personal",
+    "studioGrid": "Studio Grid (license needed)"
+  },
+  "clients": {
+    "title": "Clients",
+    "subtitle": "Manage client profiles and histories.",
+    "addClient": "Add Client",
+    "recentClients": "Recent clients",
+    "clients": [
+      "Petra V. - Last visit: 2 days ago",
+      "Marek N. - Last visit: 1 week ago",
+      "Klara S. - Last visit: 3 weeks ago"
+    ]
+  },
+  "finance": {
+    "title": "Finance Overview",
+    "subtitle": "Revenue by artist and upcoming deposits grouped by currency.",
+    "revenueByArtist": "Revenue by artist",
+    "revenueByArtistDescription": "CZK and EUR totals separated without conversion.",
+    "upcomingDeposits": "Upcoming deposits",
+    "upcomingDepositsDescription": "Session bookings waiting for payment.",
+    "expenses": "Expenses",
+    "logExpense": "Log Expense"
+  },
+  "analytics": {
+    "title": "Growth Analytics (Beta)",
+    "subtitle": "Meta insights, GA4, and SEO health scoring.",
+    "metaInsights": "Meta Insights",
+    "metaInsightsDescription": "Feature flag off. Provide Meta credentials to enable.",
+    "enableMeta": "Enable Meta",
+    "googleAnalytics": "Google Analytics",
+    "googleAnalyticsDescription": "Auth method undecided (Service Account vs OAuth).",
+    "chooseAuth": "Choose Auth",
+    "seoHealth": "SEO Health Score",
+    "seoHealthDescription": "Crawler-based checklist with optional Search Console stub.",
+    "runCheck": "Run Check"
+  },
+  "inbox": {
+    "title": "Unified Inbox",
+    "subtitle": "Instagram DMs, website chat, and walk-ins in one place.",
+    "instagram": "Instagram",
+    "instagramDescription": "Meta app exists, permissions pending.",
+    "configureMeta": "Configure Meta",
+    "websiteChat": "Website Chat",
+    "websiteChatDescription": "Chat widget ready for embedding.",
+    "copyWidget": "Copy Widget",
+    "walkins": "Walk-ins",
+    "walkinsDescription": "Log quick walk-ins that become real appointments.",
+    "newWalkin": "New Walk-in"
+  },
+  "settings": {
+    "title": "Studio Settings",
+    "subtitle": "Manage artists, services, stations, and feature flags.",
+    "artists": "Artists",
+    "artistsDescription": "Invite artists and assign roles.",
+    "addArtist": "Add Artist",
+    "services": "Services",
+    "servicesDescription": "Consultations are free, sessions require deposits.",
+    "addService": "Add Service",
+    "stations": "Stations",
+    "stationsDescription": "Station assignment is optional for session bookings.",
+    "addStation": "Add Station",
+    "currencies": "Currencies",
+    "currenciesDescription": "Supported currencies: CZK, EUR.",
+    "featureFlags": "Feature Flags",
+    "featureFlagsDescription": "Stripe, Meta, Notion, GA, SEO are disabled by default.",
+    "manageFlags": "Manage Flags"
+  },
+  "booking": {
+    "title": "Booking",
+    "description": "Select consultation or session, then optionally assign a station.",
+    "createBooking": "Create Booking"
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to manage your studio.",
+    "email": "Email",
+    "password": "Password",
+    "tenantId": "Tenant ID",
+    "studioId": "Studio ID",
+    "signIn": "Sign In"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "tr": "Türkçe",
+    "cs": "Čeština"
+  }
+}
